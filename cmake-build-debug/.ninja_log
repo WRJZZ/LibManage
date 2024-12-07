@@ -1,0 +1,14 @@
+# ninja log v6
+254	1255	7552649757472153	CMakeFiles/LibManage.dir/Reader.cpp.obj	c97a3f7aaf80be33
+9	643	7551518397682100	CMakeFiles/LibManage.dir/FileManager.cpp.obj	b586b2a27a1fb4a2
+410	1267	7552649759030752	CMakeFiles/LibManage.dir/Book.cpp.obj	79a9aa94138b1db1
+138	1294	7552655423086104	CMakeFiles/LibManage.dir/Library.cpp.obj	d55146d495edd555
+896	1406	7552656696916474	LibManage.exe	cadfbe1c5ae9e7a6
+7	892	7552656688026819	CMakeFiles/LibManage.dir/main.cpp.obj	cf508f72420c5f37
+238	1122	7551899536525667	CMakeFiles/LibManage.dir/BorrowRecord.cpp.obj	fe9a3aa601d260d5
+5	1271	7551900364735986	build.ninja	9abe9be0c7a0da68
+7	973	7552664358112779	CMakeFiles/LibManage.dir/main.cpp.obj	cf508f72420c5f37
+227	1178	7552664360309907	CMakeFiles/LibManage.dir/Reader.cpp.obj	c97a3f7aaf80be33
+375	1257	7552664361798577	CMakeFiles/LibManage.dir/Book.cpp.obj	79a9aa94138b1db1
+113	1328	7552664359160261	CMakeFiles/LibManage.dir/Library.cpp.obj	d55146d495edd555
+1328	1852	7552664371316064	LibManage.exe	cadfbe1c5ae9e7a6
