@@ -11,7 +11,7 @@ public:
     std::string gender; // 性别
     std::string studentId; // 学号
     std::vector<Book> loans; // 借阅的图书列表
-    int fines; //罚款金额
+    int fines = 0; //罚款金额
 
     static int MAX_BORROWED_BOOKS; // 最大借书数量
     static int MAX_BORROW_DAYS; // 最大借阅天数

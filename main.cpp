@@ -2,6 +2,7 @@
 #include "Library.h"
 #include "Book.h"
 #include "Reader.h"
+
 Library library;
 Book book;
 
@@ -9,19 +10,18 @@ void Init() {
     library.loadData();
     Book newbook("我爱你中国", "author1", "a001", 50, "新华出版社", "文化");
     Book newbook1("我爱你世界", "author2", "a002", 50, "新华出版社", "文化");
-    Book newbook2("我爱你", "author", "a003", 520, "新华出版社", "文化");
-    Book newbook3("我爱你邢裕婷", "纪梓喆", "a000", 1314520, "爱情出版社", "爱情");
-    Book newbook4("我爱你邢裕婷", "纪梓喆", "a000", 1314520, "爱情出版社", "爱情");
     library.books.push_back(newbook);
     library.books.push_back(newbook1);
-    library.books.push_back(newbook2);
-    library.books.push_back(newbook3);
-    library.books.push_back(newbook4);
 
     Reader reader("邢裕婷", "女", "1314520");
     Reader reader1("纪梓喆", "男", "1314521");
+    Reader reader2("薛高", "男", "23365000");
+    Reader reader3("刘威辰", "男", "23365001");
+;
     library.readers.push_back(reader);
     library.readers.push_back(reader1);
+    library.readers.push_back(reader2);
+    library.readers.push_back(reader3);
 }
 
 //管理员
