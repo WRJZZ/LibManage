@@ -154,7 +154,7 @@ void Library::searchByField() {
 // 列出所有图书
 void Library::listBooks() const {
     std::cout << "图书列表：" << std::endl;
-    std::cout << "| 图书ID |   书名   |   作者   |   领域   |   ISBN   |   价格   |" << std::endl;
+    std::cout << "|  序号   |     书名      |    作者     |   领域   |   ISBN   |   价格  |" << std::endl;
     for (size_t i = 0; i < books.size(); ++i) {
         const Book &book = books[i];
         std::cout << "|    " << i + 1 << "   |   " << book.title << "   |   " << book.author << "   |   " << book.field
@@ -225,26 +225,32 @@ void Library::returnBook() {
         std::cout << "未找到读者" << std::endl;
         return;
     }
-
-    auto itBook = std::find_if(books.begin(), books.end(), [&isbn](const Book &book) {
+    //遍历所有现存的图书
+    auto all_Book = std::find_if(books.begin(), books.end(), [&isbn](const Book &book) {
         return book.isbn == isbn;
     });
-
-    if (itBook == books.end()) {
+    if (all_Book == books.end()) {
         std::cout << "未找到图书" << std::endl;
         return;
     }
-
+    //遍历读者借阅的所有图书
+    auto loan_Book = std::find_if(itReader->loans.begin(), itReader->loans.end(), [&isbn](const Book &book) {
+        return book.isbn == isbn;
+    });
+    if (loan_Book == itReader->loans.end()) {
+        std::cout << "该书已归还" << std::endl;
+        return;
+    }
     // 计算罚款
-    int daysBorrowed = static_cast<int>(time(nullptr)) - itBook->borrowedDate;
+    int daysBorrowed = static_cast<int>(time(nullptr)) / (24 * 3600) - (loan_Book->borrowedDate / (24 * 3600));
     if (daysBorrowed > Reader::MAX_BORROW_DAYS) {
         itReader->fines += (daysBorrowed - Reader::MAX_BORROW_DAYS) * Reader::FINE_PER_DAY;
     }
 
     // 还书逻辑
-    itBook->isAvailable = true;
-    itBook->borrowerId.clear();
-    itBook->borrowedDate = 0;
+    all_Book->isAvailable = true;
+    all_Book->borrowerId.clear();
+    all_Book->borrowedDate = 0;
 
     // 从读者的借阅列表中移除图书
     itReader->loans.erase(std::remove_if(itReader->loans.begin(), itReader->loans.end(), [&isbn](const Book &book) {
@@ -260,7 +266,7 @@ void Library::returnBook() {
 // 缴纳罚款
 void Library::payFine() {
     std::string studentId;
-    double amount;
+    int amount;
 
     // 获取读者ID和罚款金额
     std::cout << "请输入学生ID：";
@@ -301,6 +307,7 @@ void Library::getReaderLoans() {
         for (const auto &bookName: itReader->loans) {
             std::cout << bookName << std::endl; // 使用重载的 << 运算符打印 Book 对象
         }
+        std::cout << "_____________________________________" << std::endl;
     } else {
         // 没有找到读者
         std::cout << "没有找到读者ID为 " << studentId << " 的借阅记录。" << std::endl;
@@ -356,7 +363,7 @@ void Library::printReaders() {
     }
     std::cout << "已经注册的用户有:" << std::endl;
     std::cout << "——————————————————————————— " << std::endl;
-    std::cout << "| 姓名 | 性别 | ID | " << std::endl;
+    std::cout << "|  姓名  |性别|    ID   | " << std::endl;
     for (const auto &reader: readers) {
         std::cout << "| " << reader.name << " | " << reader.gender << " | " << reader.studentId << " |" << std::endl;
     }
