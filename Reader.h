@@ -15,7 +15,7 @@ public:
 
     static int MAX_BORROWED_BOOKS; // 最大借书数量
     static int MAX_BORROW_DAYS; // 最大借阅天数
-    static double FINE_PER_DAY; // 每天罚款金额
+    static int FINE_PER_DAY; // 每天罚款金额
     // 构造函数
     Reader() {
     }

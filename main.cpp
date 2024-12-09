@@ -7,21 +7,22 @@ Library library;
 Book book;
 
 void Init() {
+    //从文件中加载数据
     library.loadData();
-    Book newbook("我爱你中国", "author1", "a001", 50, "新华出版社", "文化");
-    Book newbook1("我爱你世界", "author2", "a002", 50, "新华出版社", "文化");
-    library.books.push_back(newbook);
-    library.books.push_back(newbook1);
-
-    Reader reader("邢裕婷", "女", "1314520");
-    Reader reader1("纪梓喆", "男", "1314521");
-    Reader reader2("薛高", "男", "23365000");
-    Reader reader3("刘威辰", "男", "23365001");
-;
-    library.readers.push_back(reader);
-    library.readers.push_back(reader1);
-    library.readers.push_back(reader2);
-    library.readers.push_back(reader3);
+    // //初始化图书数据
+    // Book newbook("我爱你中国", "author1", "a001", 50, "新华出版社", "文化");
+    // Book newbook1("我爱你世界", "author2", "a002", 50, "新华出版社", "文化");
+    // library.books.push_back(newbook);
+    // library.books.push_back(newbook1);
+    // //初始化读者数据
+    // Reader reader("邢裕婷", "女", "1314520");
+    // Reader reader1("纪梓喆", "男", "1314521");
+    // Reader reader2("薛高", "男", "23365000");
+    // Reader reader3("刘威辰", "男", "23365001");
+    // library.readers.push_back(reader);
+    // library.readers.push_back(reader1);
+    // library.readers.push_back(reader2);
+    // library.readers.push_back(reader3);
 }
 
 //管理员
@@ -51,7 +52,7 @@ void Manager() {
             case 9: library.printReaders();
                 break; //用户列表
             case 0: break; //退出登录
-            default: std::cout << "没有此功能，请重新选择" << std::endl;
+            default: std::cout << "没有此功能，请重新选择!!!->" << std::endl<<std::endl;
                 break;
         }
     }
@@ -80,7 +81,7 @@ void Student() {
             case 7: library.registerReader();
                 break; //注册账户
             case 0: break; //退出登录
-            default: std::cout << "没有此功能，请重新选择：";
+            default: std::cout << "没有此功能，请重新选择!!!->"<<std::endl;
                 break;
         }
     }
@@ -99,7 +100,7 @@ void System() {
                 break; //学生
             case 0: library.saveData();
                 break; //向文件中存储信息并退出系统
-            default: std::cout << "没有此角色，请重新选择：";
+            default: std::cout << "没有此角色，请重新选择!!!->"<<std::endl;
                 break;
         }
     }

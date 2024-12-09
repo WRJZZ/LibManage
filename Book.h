@@ -79,9 +79,7 @@ public:
     bool isAvailable = false; // 存在状态（是否可借）
     // 新增借阅信息
     std::string borrowerId; // 借阅者学号
-    int borrowedDate; // 借书日期（可以用日期类的对象，这里简化为整数表示天数）
-
-
+    int borrowedDate = 0; // 借书日期（可以用日期类的对象，这里简化为整数表示天数）
 };
 
 #endif // BOOK_H

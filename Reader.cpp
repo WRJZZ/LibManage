@@ -4,7 +4,7 @@
 
 int Reader::MAX_BORROWED_BOOKS = 10; // 最大借书数量
 int Reader::MAX_BORROW_DAYS = 60; // 最大借阅天数
-double Reader::FINE_PER_DAY = 1.0;
+int Reader::FINE_PER_DAY = 1.0;
 // 实现Reader类的成员函数
 // 例如，增加借书记录的函数
 void Reader::borrowBook(Book &book) {
