@@ -6,29 +6,6 @@ int Reader::MAX_BORROWED_BOOKS = 10; // 最大借书数量
 int Reader::MAX_BORROW_DAYS = 60; // 最大借阅天数
 int Reader::FINE_PER_DAY = 1.0;
 // 实现Reader类的成员函数
-// 例如，增加借书记录的函数
-void Reader::borrowBook(Book &book) {
-    if (loans.size() < 10) {
-        // 借书数量不超过10本
-        loans.push_back(book);
-        book.isAvailable = false;
-    } else {
-        // 处理借书数量超限的情况
-    }
-}
-
-// 实现归还图书的函数
-void Reader::returnBook(const std::string &isbn) {
-    // 找到并归还图书
-    for (auto it = loans.begin(); it != loans.end(); ++it) {
-        if (it->isbn == isbn) {
-            it->isAvailable = true;
-            loans.erase(it);
-            break;
-        }
-    }
-}
-
 void Reader::save(std::ofstream &file) const {
     file << name << std::endl;
     file << gender << std::endl;

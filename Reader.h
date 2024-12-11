@@ -24,11 +24,6 @@ public:
         : name(name), gender(gender), studentId(stuId) {
     }
 
-    // 其他成员函数，如增加借书记录、归还图书等
-    void borrowBook(Book &book);
-
-    void returnBook(const std::string &isbn);
-
     //往文件中存储信息
     void save(std::ofstream &file) const;
 
